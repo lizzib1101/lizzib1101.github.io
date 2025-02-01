@@ -4,24 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D365 find me tool</title>
+  <style>
+    .container {
+      bottom: 0%;
+      padding-bottom: 8px;
+      position: fixed;
+    }
+  </style>
 </head>
 <body>
 
-  <select id="responseDropdown" onchange="showResponse()">
-    <option value="default">Select an option</option>
-    <option value="response1">Send me the vendor setup form link</option>
-    <option value="response2">Send me the employee setup form link</option>
-    <option value="response3">What are the company addresses</option>
-    <option value="response4">Link to D365 instructions hub</option>
-    <option value="response5">Other query</option>
-  </select>
+  <div id="responseContainer"></div>
 
-  <div id="responseText"></div>
+  <div class="container">
+    <select id="responseDropdown" onchange="addResponse()">
+      <option value="default">Select an option</option>
+      <option value="response1">Send me the vendor setup form link</option>
+      <option value="response2">Send me the employee setup form link</option>
+      <option value="response3">What are the company addresses</option>
+      <option value="response4">Link to D365 instructions hub</option>
+      <option value="response5">Other query</option>
+    </select>
+  </div>
 
   <script>
-    function showResponse() {
+    function addResponse() {
       const dropdown = document.getElementById('responseDropdown');
-      const responseText = document.getElementById('responseText');
+      const responseContainer = document.getElementById('responseContainer');
       const value = dropdown.value;
       
       const responseHtmls = {
@@ -32,11 +41,11 @@
       	'response5': '<a href="mailto:lizzi.burford@mizkan.co.uk" target="_blank">Email Lizzi</a>',
       }
       
-      const html = responseHtmls[value];
-      if (html ) {
-      	responseText.innerHTML = html;
-      } else {
-        responseText.textContent = '';
+      const htmlElementToDisplay = responseHtmls[value];
+      if (htmlElementToDisplay !== undefined) {
+        var responseBubble = document.createElement('div');
+        responseBubble.innerHTML = htmlElementToDisplay;
+        responseContainer.appendChild(responseBubble);
       }
     }
   </script>
