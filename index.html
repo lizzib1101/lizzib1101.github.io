@@ -1,75 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D365 find me tool</title>
-  <style>
-    .container {
-    position: fixed;   /* Changed the code from before, is this ok*/
-    bottom: 40%;           /* Vertically center the container - top and bottom work, which is best? */
-    left: 50%;          /* Horizontally center the container - is it always left? */
-    transform: translate(-50%, -50%); /* Adjust the position so the element is centered correctly - chat gpt notes, please explain */
-    padding-bottom: 8px; /* How do I make the responses also be in the middle of the page? When I move it across the page, it deletes the top of the box */
-} /* Why do the links except for my email come up in purple? Is it because I clicked them before I put them in? */
-  </style>
-  <title>Mizkan logo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREAKING NEWS THIS WEDNESDAY</title>
     <style>
         body {
+           font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #77DD77;
             margin: 0;
-            height: 100vh;
+            padding: 0;
         }
-        .image-container {
-            position: absolute; /* Help here pls how do I make it move across the screen */
-            top: 0;
-            right: 0;
+        header {
+            background-color: #B4CFEC;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .article {
+            padding: 20px;
+            background-color: white;
             margin: 20px;
+            border-radius: 8px;
         }
-        img {
-            width: 400px; 
-            height: auto;
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .images img {
+            width: 300px;
+            border-radius: 8px;
+        }
+        .caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-<div class="image-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Mizkan_company_logo.svg/2560px-Mizkan_company_logo.svg.png" alt="Top Right Image">
+
+<header>
+    <h1>BREAKING NEWS THIS WEDNESDAY: TOM STINKS OUT ENTIRE CITY WITH RANCID STENCH</h1>
+</header>
+
+<section class="article">
+    <h2>The Unbelievable Smell of Tom</h2>
+    <p>
+        Tom, a well-known figure in his community, has recently been the subject of widespread rumours, with some theories on his recent stench being deemed "wild" by avid reader, Poppy.
+        Tommy Queue (born 10th April) is an man who recently developed a rather alarming stench.
+        He was observed last Wednesday going for a walk to see his well known friend Jim, he was later seen stumbling out of the house looking rather intoxicated.
+        A reporter from our paper was sent to examine the scene and they found something rather surprising... A pile of clothes, a bunch of fur (potentially dog) and a small puddle of blood!
+        One of the most common theories about this new and abhorrent stench is that is related to the recently "disease" outbreak in the local area.
+        We contacted a local expert to try and add substance to the claims of a lycanthropy outbreak in the Lower Westside of Cambridge city. He however, could not find any evidence of this, therefore it is the belief of this author that his stench merely comes from his continued consumption of oreo protein bars.
+
+        
+          <!--Why do these brackets do nothing? Is it because they're in p?-->
+    </p>
+
+    <p>
+        In other news, and on a completely unrelated note, there was a large black dog spotted recently in the Upper Westside of Cambridge. This dog apparently was spotted consuming copious amounts of frozen minced beef in the final aisle of Tesco.
+        Authorities attempted to capture this dog, however no net could hold it and the tranquilizers were not strong enough to calm it. Tesco is now £850 out of pocket as the entire frozen meats section was consumed. They have declined to comment.
+    </p>
+
+    <h3>Visual Evidence</h3>
+
+    <div class="images">
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF7HPTtu673nzSy4CZWqBFfVccsoEiAy8ffg&s" alt="Tom in his natural environment"> <!--what does alt mean-->
+            <p class="caption">The animal sighted in Tesco</p>
+        </div>
+        <div>
+            <img src="https://media.istockphoto.com/id/947177858/vector/werewolf-and-moon.jpg?s=612x612&w=0&k=20&c=7nsVlFcBZuC0FZhUfTaqSt3QDMXvdEz39FKAf_plZWs=" alt="Scent following Tom">
+            <p class="caption">The animal later that night</p>
+        </div>
     </div>
-  <div id="responseContainer"></div>
 
-  <div class="container">
-    <select id="responseDropdown" onchange="addResponse()">
-      <option value="default">Select an option</option>
-      <option value="response1">Show me the vendor setup form link</option>
-      <option value="response2">Show me the employee setup form link</option>
-      <option value="response3">How do I set up a vendor on D365/the MDM?</option>
-      <option value="response4">Link to D365 instructions hub</option>
-      <option value="response5">Other query</option>
-    </select>
-  </div>
+    <p>Stay tuned for more updates as we investigate Tom's mysterious aroma and the completely unrelated dog in Tesco</p>
 
-  <script>
-    function addResponse() {
-      const dropdown = document.getElementById('responseDropdown');
-      const responseContainer = document.getElementById('responseContainer');
-      const value = dropdown.value;
-      
-      const responseHtmls = {
-      	'response1': '<a href="https://forms.office.com/pages/responsepage.aspx?id=WhJYo0IRlkqc7MuWtRgoD3sct079UOpDqYUufHcxtMVURjAwOEZJRU05Nk5aTlZDWEgzNEg5TDlWRyQlQCN0PWcu&route=shorturl!" target="_blank">Vendor form link</a/>',
-      	'response2': '<a href="https://nakanofoods.sharepoint.com/:w:/r/sites/Nemo-Proc-SC-Workspace-Procurement/_layouts/15/Doc.aspx?sourcedoc=%7BC9BFE466-DABD-4445-B237-201A701E8534%7D&file=D365%20Employee%20Set%20Up%20Form.doc&action=default&mobileredirect=true" target="_blank">Employee bank details form</a>',
-      	'response3': '<a href="https://nakanofoods.sharepoint.com/:w:/r/sites/Nemo-Proc-SC-Workspace-Procurement/_layouts/15/Doc.aspx?sourcedoc=%7B8C75ED4E-F7BF-4257-8056-C8C4E19B2E43%7D&file=MDM%20Vendor%20Set%20Up%20Process%20-%20For%20Employees.docx&action=default&mobileredirect=true" target="_blank">Vendor Setup Instructions for D365 and the MDM</a>',
-      	'response4': '<a href="https://nakanofoods.sharepoint.com/sites/D365Hub" target="_blank">Employee bank details form</a>',
-      	'response5': '<a href="mailto:lizzi.burford@mizkan.co.uk" target="_blank">Email Lizzi</a>',
-      }
-      
-      const htmlElementToDisplay = responseHtmls[value];
-      if (htmlElementToDisplay !== undefined) {
-        var responseBubble = document.createElement('div');
-        responseBubble.innerHTML = htmlElementToDisplay;
-        responseContainer.appendChild(responseBubble);
-      }
-    }
-  </script>
+</section> <!--what does end section mean?-->
 
 </body>
 </html>
